@@ -1,3 +1,63 @@
+## How to Run This Project (My Setup Instructions)
+
+Follow these steps to run the FastAPI Iris prediction API.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/bombaypranathi22/mlops-API-LAB.git
+cd mlops-API-LAB
+2. Create Virtual Environment
+python -m venv fastapi_lab1_env
+Activate the environment:
+Mac/Linux
+
+source fastapi_lab1_env/bin/activate
+Windows
+fastapi_lab1_env\Scripts\activate
+3. Install Dependencies
+pip install -r requirements.txt
+4. Train the Model
+Move to the source folder:
+cd src
+Run training:
+python train.py
+This creates the trained model file:
+model/iris_model.pkl
+5. Run the FastAPI Server
+Start the API server:
+uvicorn main:app --reload
+The API will run at:
+http://127.0.0.1:8000
+6. Test the API
+Open the Swagger documentation in a browser:
+http://127.0.0.1:8000/docs
+Click the POST /predict endpoint and test using this example input:
+{
+  "petal_length": 1.4,
+  "sepal_length": 5.1,
+  "petal_width": 0.2,
+  "sepal_width": 3.5
+}
+Example response:
+{
+  "response": 0
+}
+Modification Made
+The original lab used a DecisionTreeClassifier.
+This implementation was modified to use a RandomForestClassifier.
+
+---
+
+# After editing README
+
+Save the file and run:
+
+```bash
+git add README.md
+git commit -m "Added instructions to run the project"
+git push
+ 
 
 ---
 - Video Explanation: [FastAPI lab](https://www.youtube.com/watch?v=KReburHqRIQ&list=PLcS4TrUUc53LeKBIyXAaERFKBJ3dvc9GZ&index=4)
